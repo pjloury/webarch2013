@@ -17,13 +17,15 @@ PID: 20925927
     web with mobile applications and really get the MVC 
     concept down, and learn may way around the DOM.
 
-    I'd like to learn about Angular.js, Backbone.js, Node.js
-    and maybe even Clojure.
+    I'd like to learn about Angular.js, Backbone.js, Node.js and 
+    how to send data between a web server and a mobile application
+
 
 2. Favorite Features from Chrome
     a) type directly into the browser bar to perform google search
     b) if you type crunchbase.com and then a space, you can perform a 
     direct search on the crunchbase database to save yourself some time
+    c) TabCloud! Lets you save windows full of tabs for later!
 
    Favorite Features from Firefox
    a) Technically Chrome does this too but command+option+left/right 
