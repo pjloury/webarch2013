@@ -1,0 +1,32 @@
+Name: Philip (PJ) Loury
+PID: 20925927
+
+1. Experiences Prior:
+    I'm a UCSD Alum and I got to take an HCI class with Jim Hollan.
+    The web portion taught us JS/CSS/HTML
+
+    Since then I worked a summer internship at Basis Science, a 
+    health gadget startup making a fitness tracking watch.
+
+    At Basis, I was a Python developer and worked with a Django
+    framework and did data visualization work using D3
+
+    This summer, I've been teaching myself Ruby on Rails
+
+    What I'd really like to learn about is interfacing the 
+    web with mobile applications and really get the MVC 
+    concept down, and learn may way around the DOM.
+
+    I'd like to learn about Angular.js, Backbone.js, Node.js
+    and maybe even Clojure.
+
+2. Favorite Features from Chrome
+    a) type directly into the browser bar to perform google search
+    b) if you type crunchbase.com and then a space, you can perform a 
+    direct search on the crunchbase database to save yourself some time
+
+   Favorite Features from Firefox
+   a) Technically Chrome does this too but command+option+left/right 
+   can navigate you between tabs without using the mouse
+   b) You can put different skins on your browser using add-ons to 
+   customize the appearance
