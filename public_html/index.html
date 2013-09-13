@@ -1,21 +1,168 @@
 <!DOCTYPE html>
 <html>
-  <!-- This is a comment about my website -->
-    <head>
-        <title>Designs by PJ Loury</title>
-    </head>
-    <body>
-      <h1>Philip James Loury</h1>
-      <div class = "about">
-        <p>Check out my <a href="http://www.github.com/pjloury">Github</a> account
-        </p>
+  <!-- Credits: Thank You W3C Schools and Twitter Bootstrap for the help -->
+  <head>
+    <!-- import Google Font-->
+    <link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
 
-        <link> </link>
-        <img></img>
+     <!-- import Bootstrap-->
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
-        <p>What Up Guys Let's See if this Works on GitHub.io</p>
+   
+    <!-- import Custome CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/personal-page.css">
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <!-- import D3-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <!-- Plan: Philip J Loury Comes from the Sky, bounces into place -->
+    <!-- "Enter" button materializes below it -->
+
+    <title>Designs by PJ Loury</title>
+  </head>
+
+  <nav>
+    <ul>
+      <li>
+        <a class = "navbutton" href="http://wwww.github.com/pjloury"> 
+        My Github!
+        </a>
+      </li>
+
+      <li>
+        <a class = "navbutton" href="http://www.linkedin.com/profile/view?id=78377787"> 
+        My LinkedIn!
+        </a>
+      </li>
+      <!--   <img src="http://www.gravatar.com/3700dc684bcce3315499d48d4545b7fa" -->
+    </ul>
+  </nav>
+
+  <style>
+    h1{color: blue;}
+  </style>
+
+   <body>
+    <!-- Part 1: Wrap all page content here -->
+    
+    <div id="wrap">
+
+    <!-- Begin page content -->
+    <div class="container-fluid">
+
+      <div class="page-header">
+        <h1> This is an H1 </h1>
+
+        <h1 class="special"> This is a special H1</h1>
+
+        <p class="bannerAd"> Testing... </p>
+
+        <h2>Philip James Loury</h2>
+        <!-- include in CSS middle, font styles-->
       </div>
 
+      <div class="row-fluid">
 
-    </body>
+        <p class="lead">Sticky Footer, Bottom of ViewPort.</p>        
+        
+        <p>Check out my <a href="http://www.github.com/pjloury">Github</a> account</p>
+      
+        <img src = "assets/img/profilepic.JPG" width = 200px>
+
+        <div id = "d3circlesFOR"></div>
+
+        <div id ="d3circles">
+        <script type = "text/javascript">
+
+        var sampleSVG = d3.select("#d3circles")
+          .append("svg")
+          .attr("width",600)
+          .attr("height",200);
+
+        var sampleSVGFOR = d3.select("#d3circlesFOR")
+          .append("svg")
+          .attr("width",600)
+          .attr("height",200);
+
+        var numCircles = 3;
+        var circleColors = new Array("orange","yellow","purple");
+
+        for (var i =1; i<=numCircles; i++)
+        {
+        sampleSVGFOR.append("circle")
+          .style("fill",circleColors[i-1])
+          .attr("r",40)
+          .attr("cx",200*i-100)
+          .attr("cy",100)
+        }
+
+        sampleSVG.append("circle")
+          .style("fill","red")
+          .attr("r",40)
+          .attr("cx",100)
+          .attr("cy",100)
+        sampleSVG.append("circle")
+          .style("fill","green")
+          .attr("r",40)
+          .attr("cx",300)
+          .attr("cy",100)
+        sampleSVG.append("circle")
+          .style("fill","blue")
+          .attr("r",40)
+          .attr("cx",500)
+          .attr("cy",100)
+
+        </script>
+        
+        </div>
+
+        <div id= "normalCircles">
+           <!-- How best to put circles in a row?  Using a table! -->
+          <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "red"/> 
+          </svg>
+          <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "green"/> 
+          </svg>
+          <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "blue"/> 
+          </svg>
+
+        </div>
+
+        <table class = "mainButtons">  <!-- TODO: mainButtons class-->
+          <tr>
+            <td>
+              <svg >
+              <circle cx = "100" cy = "5" r="40" fill = "red"/>
+              </svg>
+            </td>
+            <td>
+              <svg >
+              <circle cx = "200" cy = "5" r="40" fill = "red"/>
+              </svg>
+            </td>
+            <td>
+              <svg >
+              <circle cx = "300" cy = "5" r="40" fill = "red"/>
+              </svg>
+            </td>
+          </tr>
+        </table>
+
+        <div id="push">       </div>
+
+    </div> <!--end container-->
+
+
+    </div>    <!--end wrap-->
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">This is a footer.</p>
+      </div>
+    </div>
+
+  </body>
 </html>
