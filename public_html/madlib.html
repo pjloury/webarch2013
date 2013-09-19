@@ -1,40 +1,152 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Madlib!</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-    </head>
-    <body>
-		<form id="madlib-input">
-			<p>Please Input your answers below!</p>
-			<!-- inputs... -->
-		</form>
-		
-		<div id="madlib-output">
-		</div>
+<!DOCTYPE html> 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<!-- Optionally include other scripts
-        <script src="js/main.js"></script>
-		-->
+<!-- This assignment was incredibly hard! I found some great online resources
+that helped me out, however and will post about them on my blog for this class. 
+Happy Reading! PJ -->
 
-        <!-- You may add Javascript functions below -->
-        <script>
-			function validate() {
-				if ($("input:first").val() == "correct") {
-					$("#madlib-output").text("input: correct");
-				} else {
-					alert("Error!");
-				}
-				return false;
-			}
+<head>
 
-			$(document).ready(function() {
-				$("#madlib-input").submit(validate);
-				console.log("ready!");
-			});
-        </script>
-    </body>
+  <title> Contact PJ!</title>
+  <link rel="stylesheet" href="personal.css" type="text/css" media="screen">
+  
+  <script type = "text/javascript">
+
+  var atLeast1=0;
+
+  function checkForm(){
+    // This function is submitted upon pressing BOOYAH!
+
+    var wordArray = new Array();
+
+    // First of all, have all the text boxes been filled in?
+    for (i=0;i<3;i++) {
+      var box = document.forms['madLibs'].elements[i];
+      if (!box.value) {
+        alert('Dude your forgot ' + box.name + '!');
+        box.focus()
+        return;
+      }
+    }
+    for (i=0;i<3;i++) {
+      var box2 = document.forms['madLibs'].elements[i];
+      wordArray.push(box2.value);
+    } //elements 0,1,2 are text
+  
+    user_input = '';
+    //user input is used to aggregate data from this question
+
+    atLeast1 = 0;
+
+    for (i=0;i<document.forms['madLibs'].distance.length;i++) { //
+      if (document.forms['madLibs'].distance[i].checked) {
+        atLeast1 = 1;
+        wordArray.push(document.forms['madLibs'].distance[i].value); 
+      } 
+    }
+    if(atLeast1==0){
+      alert('Dude your forgot to input a distance!');
+      box.focus()
+      return;
+    }
+
+    atLeast1 = 0;
+    for (i=0;i<document.forms['madLibs'].unit.length;i++) { //
+      if (document.forms['madLibs'].unit[i].checked) {
+        
+        wordArray.push(document.forms['madLibs'].unit[i].value); 
+        atLeast1=1;
+        //only push one thing
+      } 
+    }
+    if(atLeast1==0){
+      alert('Dude you forgot to input a distance unit!');
+      box.focus()
+      return;
+
+    }
+
+    //Run a For Loop to scan if any of the Radio Buttons are selected
+    // What's going on with this guy
+
+    var allFeelings = new Array();
+
+      for (i=11;i<15;i++) {
+        if (document.madLibs.elements[i].checked) {
+          
+          allFeelings.push(document.madLibs.elements[i].value);
+        }
+      }
+    if(allFeelings == ""){
+      alert('Dude you forgot to check off an emotion!')
+      box.focus()
+      return;
+    }
+    
+    if(allFeelings.length>1){
+      allFeelings[allFeelings.length-1] = "and " + allFeelings[allFeelings.length-1]
+    }
+
+    allFeelings.join(' ');
+
+    //CONCATENATE allFeelings INTO ONE PEACE
+    wordArray.push(allFeelings);
+
+    // The user_string is presented inside of the textarea
+
+    var story = "One " + wordArray[0] + " morning, " + wordArray[1] +" the bear woke up at his " + wordArray[2] + " apartment in Berkeley and decided to go for a " + 
+      wordArray[3] + " " + wordArray[4] + " walk down Telegraph avenue. He was feeling very "+
+      wordArray[5] + ". The End.";
+
+    document.forms['madLibs'].output.value = story;
+  return atLeast1;
+  }
+
+</script> 
+
+</head>
+
+<body>
+  <div id = "container">
+      
+  <img src="MadLibs.png">
+
+  <form class = "libs" name="madLibs" action="#" onsubmit="checkForm(); return false">
+
+    <p>Adjective1</p>
+      <p><input name="Adjective1" value="hairy"/></p>
+    
+    <p>Name</p>
+      <p><input name="Name" value="John Doe"/></p>
+    
+    <p>Adjective2</p>
+      <p><input name="Adjective2" value="scary"/></p>
+    
+    <p>Pick a Number!</p>
+      <p><input type="radio" name="distance" value="5000" />5<br />
+      <input type="radio" name="distance" value="100000" />10<br />
+      <input type="radio" name="distance" value="150" />15<br />
+      <input type="radio" name="distance" value="20000" />20,000</p>
+
+    <p>Pick a Distance!</p>
+      <p><input type="radio" name="unit" value="cm" />cm<br />
+      <input type="radio" name="unit" value="km" />km<br />
+      <input type="radio" name="unit" value="ft" />ft<br />
+      <input type="radio" name="unit" value="miles" />miles</p>  
+    
+    <p>How are you Feeling? (check all that apply)</p>
+      <p><input type="checkbox" name="feeling" value="tired"/>tired<br />
+      <input type="checkbox" name="feeling" value="hungry"/>hungry<br />
+      <input type="checkbox" name="feeling" value="grumpy"/>grumpy<br />
+      <input type="checkbox" name="feeling" value="fierce"/>fierce</p>
+      
+    <p><input type="submit" value="Tell me a Story!"/>
+    <br/>
+    
+    <p><textarea cols="60" rows="6" name="output">MadLibs Story Will Appear here when you punch "Tell me a Story!"
+    </textarea></p>
+
+  </form> 
+
+  </div>
+</body>
 </html>
