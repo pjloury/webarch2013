@@ -14,6 +14,26 @@ Q1:
  9  xe-0-0-0.cr2.sjc2.us.above.net (64.125.30.126)  7.230 ms  7.119 ms  7.588 ms
  10  xe-0-1-0.mpr4.sfo7.us.above.net (64.125.26.61)  73.179 ms  8.289 ms  8.271 ms
  11  209.66.115.62.t01325-02.above.net (209.66.115.62)  8.304 ms  8.320 ms  8.425 ms
+After this point, my computer appeared to hit a firewall or some other error and kept returning ***
+
+Therefore, I hypothesize that the correct IP listings can be foundin Jim's slides from last week:
+Note that my steps 1 2 and 3 all differ from Jim's but the ultimate destination is m.yelp.com 
+in both cases
+
+traceroute to yelp.com (199.255.189.160), 30 hops max, 60 byte packets
+ 1  g3-35.inr-211-srb.Berkeley.EDU (128.32.78.3)  0.960 ms  1.151 ms  1.056 ms
+ 2  t6-1.inr-202-reccev.Berkeley.EDU (128.32.255.126)  0.930 ms  1.068 ms  1.194 ms
+ 3  xe-5-1-0.inr-001-sut.Berkeley.EDU (128.32.0.66)  17.730 ms  17.766 ms  17.687 ms
+ 4  dc-sfo-agg-1--ucb-10ge.cenic.net (137.164.50.16)  1.554 ms  1.596 ms  1.552 ms
+ 5  svl-agg2--sfo-agg1-10g.cenic.net (137.164.22.27)  3.430 ms  3.392 ms  3.291 ms
+ 6  dc-oak-core1--svl-core1-ge-1.cenic.net (137.164.46.213)  4.361 ms  3.971 ms  3.992 ms
+ 7  dc-paix-px1--oak-core1-ge.cenic.net (137.164.47.18)  5.479 ms  5.370 ms  5.189 ms
+ 8  abovenet--paix-px1-ge2.cenic.net (198.32.251.78)  5.613 ms  5.519 ms  5.567 ms
+ 9  xe-3-0-0.cr1.sjc2.us.above.net (64.125.31.66)  7.367 ms  7.501 ms  7.345 ms
+10  xe-0-0-0.cr2.sjc2.us.above.net (64.125.30.126)  6.403 ms  6.287 ms  6.261 ms
+11  xe-0-1-0.mpr4.sfo7.us.above.net (64.125.26.61)  7.303 ms  7.264 ms  7.240 ms
+12  209.66.115.62.t01325-02.above.net (209.66.115.62)  7.326 ms  7.279 ms  7.318 ms
+13  www.sfo1.yelp.com (199.255.189.160)  7.356 ms  7.293 ms  7.407 ms
 
 
 Q2:
