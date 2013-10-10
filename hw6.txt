@@ -2,39 +2,45 @@ Philip Loury
 HW6 INFO 253
 
 Q1:
- The following IPs (shown in parentheses) are used when accessing m.yelp.com using $ traceroute m.yelp.com
- 1  xe-1-2-0-506.inr-306-sut.1918.berkeley.edu (10.142.4.1)  3.802 ms  3.457 ms  3.435 ms
- 2  t5-4.inr-201-sut.berkeley.edu (128.32.0.56)  3.537 ms  3.332 ms  3.408 ms
- 3  xe-4-1-0.inr-001-sut.berkeley.edu (128.32.0.64)  3.756 ms  8.133 ms  9.619 ms
- 4  cenic.net (137.164.50.16)  4.143 ms  4.108 ms  4.037 ms
- 5  oak-agg2--sfo-agg1-10g.cenic.net (137.164.22.25)  7.859 ms  8.623 ms  9.494 ms
- 6  dc-paix-px1--oak-core1-ge.cenic.net (137.164.47.18)  6.202 ms  6.455 ms  41.998 ms
- 7  abovenet--paix-px1-ge2.cenic.net (198.32.251.78)  6.564 ms  9.702 ms  6.349 ms
- 8  xe-3-0-0.cr1.sjc2.us.above.net (64.125.31.66)  7.013 ms  7.165 ms  7.859 ms
- 9  xe-0-0-0.cr2.sjc2.us.above.net (64.125.30.126)  7.230 ms  7.119 ms  7.588 ms
- 10  xe-0-1-0.mpr4.sfo7.us.above.net (64.125.26.61)  73.179 ms  8.289 ms  8.271 ms
- 11  209.66.115.62.t01325-02.above.net (209.66.115.62)  8.304 ms  8.320 ms  8.425 ms
-After this point, my computer appeared to hit a firewall or some other error and kept returning ***
+This is the output from executing host -v m.yelp.com
 
-Therefore, I hypothesize that the correct IP listings can be foundin Jim's slides from last week:
-Note that my steps 1 2 and 3 all differ from Jim's but the ultimate destination is m.yelp.com 
-in both cases
+[pjloury@udp084517uds ~/Dropbox/mtm/info253/webarch2013]$ host -v m.yelp.com
+Trying "m.yelp.com"
+ury@udp084517uds ~/Dropbox/mtm/info253/webarch2013]$ host -v m.yelp.com
+Trying "m.yelp.com"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7874
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 4, ADDITIONAL: 4
 
-traceroute to yelp.com (199.255.189.160), 30 hops max, 60 byte packets
- 1  g3-35.inr-211-srb.Berkeley.EDU (128.32.78.3)  0.960 ms  1.151 ms  1.056 ms
- 2  t6-1.inr-202-reccev.Berkeley.EDU (128.32.255.126)  0.930 ms  1.068 ms  1.194 ms
- 3  xe-5-1-0.inr-001-sut.Berkeley.EDU (128.32.0.66)  17.730 ms  17.766 ms  17.687 ms
- 4  dc-sfo-agg-1--ucb-10ge.cenic.net (137.164.50.16)  1.554 ms  1.596 ms  1.552 ms
- 5  svl-agg2--sfo-agg1-10g.cenic.net (137.164.22.27)  3.430 ms  3.392 ms  3.291 ms
- 6  dc-oak-core1--svl-core1-ge-1.cenic.net (137.164.46.213)  4.361 ms  3.971 ms  3.992 ms
- 7  dc-paix-px1--oak-core1-ge.cenic.net (137.164.47.18)  5.479 ms  5.370 ms  5.189 ms
- 8  abovenet--paix-px1-ge2.cenic.net (198.32.251.78)  5.613 ms  5.519 ms  5.567 ms
- 9  xe-3-0-0.cr1.sjc2.us.above.net (64.125.31.66)  7.367 ms  7.501 ms  7.345 ms
-10  xe-0-0-0.cr2.sjc2.us.above.net (64.125.30.126)  6.403 ms  6.287 ms  6.261 ms
-11  xe-0-1-0.mpr4.sfo7.us.above.net (64.125.26.61)  7.303 ms  7.264 ms  7.240 ms
-12  209.66.115.62.t01325-02.above.net (209.66.115.62)  7.326 ms  7.279 ms  7.318 ms
-13  www.sfo1.yelp.com (199.255.189.160)  7.356 ms  7.293 ms  7.407 ms
+;; QUESTION SECTION:
+;m.yelp.com.      IN  A
 
+;; ANSWER SECTION:
+m.yelp.com.   60  IN  A 199.255.189.34
+m.yelp.com.   60  IN  A 198.51.132.34
+m.yelp.com.   60  IN  A 199.255.189.234
+m.yelp.com.   60  IN  A 198.51.132.234
+
+;; AUTHORITY SECTION:
+yelp.com.   19757 IN  NS  ns2.p18.dynect.net.
+yelp.com.   19757 IN  NS  ns1.p18.dynect.net.
+yelp.com.   19757 IN  NS  ns3.p18.dynect.net.
+yelp.com.   19757 IN  NS  ns4.p18.dynect.net.
+
+;; ADDITIONAL SECTION:
+ns1.p18.dynect.net. 19757 IN  A 208.78.70.18
+ns2.p18.dynect.net. 2981  IN  A 204.13.250.18
+ns3.p18.dynect.net. 2776  IN  A 208.78.71.18
+ns4.p18.dynect.net. 19757 IN  A 204.13.251.18
+
+Received 242 bytes from 128.32.136.9#53 in 13 ms
+
+I originally used trace-route to do #1 but after reading Jim's post on Piazza, 
+I believe I need to use the host command instead. I believe that the recursive IP's are 
+208.78.70.18
+204.13.250.18
+208.78.71.18
+204.13.251.18
+128.32.136.9
 
 Q2:
 m.yelp.com has address 199.255.189.234
