@@ -1,0 +1,74 @@
+Philip Loury HW4, INFO 253
+
+Question 1.
+
+1.1	Return code 200
+
+HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 228
+Server: Werkzeug/0.8.3 Python/2.7.3
+Date: Mon, 23 Sep 2013 20:50:03 GMT
+
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>i253</title>
+		<link rel="stylesheet" href="static/css/default.css">
+	</head>
+	<body>
+		<div class="container">
+			Hello Jim
+		</div>
+	</body>
+</html>Connection closed by foreign host.
+
+1.2	Return code 302
+
+HTTP/1.0 302 FOUND
+Content-Type: text/html; charset=utf-8
+Content-Length: 253
+Location: http://en.wikipedia.org	
+Server: Werkzeug/0.8.3 Python/2.7.3
+Date: Mon, 23 Sep 2013 20:51:35 GMT
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href="http://en.wikipedia.org">http://en.wikipedia.org</a>.  If not click the link.Connection closed by foreign host.
+
+
+1.2.1 The next HTTP request issued:
+GET http://en.wikipedia.org
+
+
+
+
+1.3	HTTP/1.0 405 METHOD NOT ALLOWED which makes sense, you shouldn’t be “PUT”-ing to wikipedia
+
+2.  	Explain what happens when your browser loads http://people.ischool.berkeley.edu/~<USER>/server/wiki 
+When you enter into my browser the URL http://people.ischool.berkeley.edu/~pjloury/server/wiki
+The browser queries the iSchool server people.ischool.berkeley.edu and accesses the wiki file in the server directory /~pljoury/server/wiki
+
+Wiki contains the following HTML code:
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href="http://en.wikipedia.org">http://en.wikipedia.org</a>.  If not click the link.
+
+The server then handles a re-direct request to http://en.wikipedia.org
+and outputs the following:
+
+Request 
+DEBUG in app [./app.py:38]:
+Redirecting to http://en.wikipedia.org
+--------------------------------------------------------------------------------
+127.0.0.1 - - [23/Sep/2013 14:25:00] "GET /wiki HTTP/1.1" 302 -
+
+The app.py server then submits a GET request to Wikipedia.org and the Wikipedia.org server then sends back the HTML page for en.wikipedia.org, and this is the HTML code that is then displayed in the browser
+
+
+3.	127.0.0.1 - - [23/Sep/2013 14:16:59] "GET /~pjloury/server" 404 –
+
+For this given route, no HTML page is configured to be rendered and so the server returns a 404 error because the user is attempting to access something that is not there.
