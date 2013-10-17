@@ -1,0 +1,15 @@
+Philp Loury
+HW7
+
+$ curl -v -H "Accept-Encoding: gzip" http://www.yelp.com > compress.txt
+
+$ curl -v http://www.yelp.com > nocompress.txt
+
+$ du -h compress.txt
+ 20K	compress.txt
+
+$ du -h nocompress.txt
+ 88K	nocompress.txt
+
+That's a compression ratio of 4.4:1
+
