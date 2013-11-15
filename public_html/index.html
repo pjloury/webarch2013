@@ -22,36 +22,16 @@
     <!-- Plan: Philip J Loury Comes from the Sky, bounces into place -->
     <!-- "Enter" button materializes below it -->
 
-    <title>Designs by PJ Loury</title>
+    <title>Personal Portfolio of Philip James Loury</title>
+
+
+    <meta name="description" content = "Personal Portfolio of Philip James Loury">
+    <meta name="keywords" content="UC, Berkeley, UCSF, Bioengineering, Philip, PJ, Loury">
+    <meta name="author" content="Philip James Loury">
   </head>
 
-  <nav>
-    <ul>
-      <li>
-        <a class = "navbutton" href="http://wwww.github.com/pjloury"> 
-        My Github!
-        </a>
-      </li>
 
-      <li>
-        <a class = "navbutton" href="http://www.linkedin.com/profile/view?id=78377787"> 
-        My LinkedIn!
-        </a>
-
-        <a class = "navbutton" href="madlib.html"> 
-        MadLibs!
-        </a>
-
-      </li>
-      <!--   <img src="http://www.gravatar.com/3700dc684bcce3315499d48d4545b7fa" -->
-    </ul>
-  </nav>
-
-  <style>
-    h1{color: blue;}
-  </style>
-
-   <body>
+  <body>
     <!-- Part 1: Wrap all page content here -->
     
     <div id="wrap">
@@ -59,44 +39,94 @@
     <!-- Begin page content -->
     <div class="container-fluid">
 
-
-
       <div class="row-fluid">
-
-
-
 
         <div class= "span2">
         </div>
 
-        <div class="span10">
+        <div class="span8">
+	  <nav>
+	    <ul>
+	      <li>
+		<a class = "navbutton" href="http://wwww.github.com/pjloury"> 
+			My Github!
+		</a>
+	      </li>
 
-          <div class="page-header">
+	      <li>
+		<a class = "navbutton" href="http://www.linkedin.com/profile/view?id=78377787"> 
+			My LinkedIn!
+		</a>
+	      </li>	
+
+	      <li>
+		 <a class = "navbutton" href="madlib.html"> 
+			MadLibs!
+		 </a>
+	      </li>
+	      <!--   <img src="http://www.gravatar.com/3700dc684bcce3315499d48d4545b7fa" -->
+	    </ul>
+	  </nav>
+
+          <!-- Person Microdata -->
+  	  <div class="page-header" itemscope itemtype="http://schema.org/Person"> 
             <style>
             .page-header{
-            background-color: #CDCDCD}</style>
-            <h1> This is an H1 </h1>
+            background-color: #f5f5f5;
+	    border-radius: 3px;	}</style>
+	    
+	   <!-- My three additional Schema.org Person itemprops are giveName, familyName, and workLocation-->
 
-            <h1 class="special"> This is a special H1</h1>
+	    <h2>  
+		<span itemprop="givenName">Philip</span> 
+		<span itemprop="additionalName">James</span> 
+		<span itemprop="familyName">Loury</span> 
+	    </h2>
+	  
+            <img src = "assets/img/profilepic.JPG" width = 200px itemprop="image">
 
-            <p class="bannerAd"> Testing... </p>
+	    <h3> Occupation: <span itemprop="jobTitle">Student</span> </h3>
+	    <h3> Current City: <span itemprop="workLocation">Berkeley</span> </h3>
+            <h3> Hello, my name is <span itemprop="name">PJ</span> and I am a 1st Year 
+          	Master's student at <span itemprop="affiliation">UC Berkeley</span>
 
-            <h2>Philip James Loury</h2>
-            <!-- include in CSS middle, font styles-->
-          </div>
+        <!-- include in CSS middle, font styles-->
 
+            <p class="lead">I Like Turtles</p>        
+	</div> <!-- End of Person Itemscope --> 	
 
-
-
-          <p class="lead">Sticky Footer, Bottom of ViewPort.</p>        
-          
-          <p>Check out my <a href="http://www.github.com/pjloury">Github</a> account</p>
         
-          <img src = "assets/img/profilepic.JPG" width = 200px>
+	 <!-- Organizatin Microdata -->
+         <div itemscope itemtype="http://schema.org/Organization">
+            <span itemprop = "name"> <h2> CellScope Research Group </h2> </span>
+              <span itemprop = "founder" itemscope itemptype="http://schema.org/Person">
+		 <h3> Principal Investigator: <span itemprop="name">Dr. Dan Fletcher</span></h3>
+	      </span>
 
-          <div id = "d3circlesFOR"></div>
+	      <span itemprop = "address" itemscope itemtype="http://schema.org/PostalAddress">
+		<span itemprop = "streetAddress"><h3>3211 Piedmont Ave. </h3></span>
+	      </span>	        	
 
-          <div id ="d3circles">
+	      <img src="http://www.pjloury.com/uploads/1/4/1/4/14140248/4319003_orig.jpg"  itemprop = "image"
+              content =  "http://www.pjloury.com/uploads/1/4/1/4/14140248/4319003_orig.jpg">
+	 </div> <!-- End of Organization Itemscope -->      	
+
+
+	<!-- I Chose to use Product Microdata for my "Other" Category -->
+         <div itemscope itemtype="http://schema.org/Product">
+            <span itemprop = "name"> <h2>  The Ocular CellScope </h2> </span>
+	        <img src="http://blog.healthapptitude.com/wp-content/uploads/2012/11/cellscope.png" itemprop = "logo"
+	         content =
+	        "http://blog.healthapptitude.com/wp-content/uploads/2012/11/cellscope.png" >
+ 	    <h3>Coming to a Clinical Trial Near You in<span itemprop = "releaseDate" content = "14-06-15"> June 2014!</span></h3>
+	    <h3><span itemprop = "model">Prototype #2 <span></h3>
+
+            <p>Check out my <a href="http://www.github.com/pjloury">Github</a> account</p>
+	</div>
+       
+        <div id = "d3circlesFOR"></div>
+
+        <div id ="d3circles">
 
           <script type = "text/javascript">
             var sampleSVG = d3.select("#d3circles")
@@ -136,31 +166,27 @@
               .attr("cx",500)
               .attr("cy",100)
           </script>         
-          </div>
+       </div>
 
-          <div id= "normalCircles">
-            <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "red"/> 
-            </svg>
-            <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "green"/> 
-            </svg>
-            <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "blue"/> 
-            </svg>
-          </div>
+       <div id= "normalCircles">
+         <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "red"/> 
+         </svg>
+         <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "green"/> 
+         </svg>
+         <svg width = "200" height = "200"> <circle cx = "100" cy = "100" r="40" fill = "blue"/> 
+         </svg>
+       </div>
 
-          <div id="push">       </div>
 
-        </div> <!-- end span10 -->
+    <div id="footer">
+      <p class="muted credit">This is a footer.</p>
+    </div>
+
+    </div> <!-- end span10 -->
 
     </div> <!--end container-->
 
-
     </div>    <!--end wrap-->
-
-    <div id="footer">
-      <div class="container">
-        <p class="muted credit">This is a footer.</p>
-      </div>
-    </div>
 
   </body>
 </html>
