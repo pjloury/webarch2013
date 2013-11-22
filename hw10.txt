@@ -1,0 +1,53 @@
+HW 10, Midterm Re-do
+
+Missed 8 Points in Total
+
+3. (+1 pts)
+   Correct Answers: Strong, Tr, Div, Table
+
+8. (+1 pts)
+
+   var span = document.getElementById("blink")
+   var colorz = "white"
+   
+   function turnRed(){
+       colorz="red";
+       span.style.color = colorz;
+       window.setTimeout(turnWhite,1000);
+   }
+   
+
+   function turnWhite(){
+       colorz="white";
+       span.style.color = colorz;
+       window.setTimeout(turnRed,1000);
+   }
+
+   var execute = turnRed();	
+  
+
+9. (+1 pts) 
+   GET example.com/app/search.html
+   Host: example.com
+
+
+14. (+2 pts)
+
+Ordering: Ensure packets are read in the same order they were sent using PACKET SEQUENCE NUMBER
+
+Congestion: On sending failures, WAIT/BACK OFF
+
+17. (+1 pts)
+
+The correct headers are:
+Host, Content-Length, Content-Type
+
+18. (+2 pts)
+
+PUT /student HTTP/1.1
+
+Host: localhost
+Content-Length: 22
+Content-Type: text/plain
+
+name=Philip%20James%20Loury&class=i253
